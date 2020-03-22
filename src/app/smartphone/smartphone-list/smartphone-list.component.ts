@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SmartphoneService } from '../smartphone.service';
 import { Smartphone } from 'src/app/model/smartphone.model';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-smartphone-list',
@@ -9,6 +10,8 @@ import { Smartphone } from 'src/app/model/smartphone.model';
 })
 export class SmartphoneListComponent implements OnInit {
 
+  search = new FormControl();
+  filteredSmartphones: Smartphone[] = []
   smartphones: Smartphone[] = [];
 
   constructor(private smartphoneService: SmartphoneService) { }
@@ -17,7 +20,13 @@ export class SmartphoneListComponent implements OnInit {
     this.smartphoneService.list()
     .subscribe((result) => {
       this.smartphones = result;
+      this.filteredSmartphones = this.smartphones;
     })
+  }
+
+  find(query:string): void {
+    this.filteredSmartphones = this.smartphones
+      .filter(smartphone => smartphone.model.toLowerCase().includes(query.toLowerCase()) || query === '');
   }
 
 }

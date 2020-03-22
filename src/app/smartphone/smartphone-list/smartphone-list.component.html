@@ -1,5 +1,14 @@
-<div fxLayout="row" fxLayoutGap>
-    <div *ngFor="let smartphone of smartphones">
-        <app-smartphone-card [smartphone]="smartphone"></app-smartphone-card>
+<div fxFlex fxLayoutAlign="center center">
+    <div fxFlex="80" fxLayout="column">
+        <form fxLayoutAlign="center" fxLayout="row">
+            <mat-form-field fxFlex="80">
+                <input [formControl]="search" (keyup)="find(search.value)" matInput placeholder="Pesquisar">
+            </mat-form-field>
+        </form>
+        <div fxLayout="row" fxLayoutGap="1%">
+            <div *ngFor="let smartphone of filteredSmartphones">
+                <app-smartphone-card [smartphone]="smartphone"></app-smartphone-card>
+            </div>
+        </div>
     </div>
 </div>
