@@ -19,6 +19,7 @@ export class SmartphoneListComponent implements OnInit {
   ngOnInit(): void {
     this.smartphoneService.list()
     .subscribe((result) => {
+      console.log(result)
       this.smartphones = result;
       this.filteredSmartphones = this.smartphones;
     })

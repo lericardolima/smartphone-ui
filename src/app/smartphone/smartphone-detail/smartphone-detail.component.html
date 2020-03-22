@@ -1,0 +1,35 @@
+<div *ngIf="smartphone" fxFill fxLayout="row" fxLayoutAlign="center center">
+    <mat-card fxFlex="90" fxLayoutGap="20px">
+        <div fxFlex="40">
+            <img fxFill src="{{smartphone.photo}}" alt="{{smartphone.model}}">
+        </div>
+        <div fxLayout="column" fxFlex="60">
+            <mat-card-header fxLayout="row" fxFlex="20">
+                <div fxFlex="80" fxLayout="column" fxLayoutAlign="center start">
+                    <mat-card-title>{{ smartphone.model }}</mat-card-title>
+                    <mat-card-subtitle>{{ smartphone.brand }}</mat-card-subtitle>
+                </div>
+                <div fxFlex="20" fxLayoutAlign="start center">
+                    <mat-card-title>{{ smartphone.price | currency }}</mat-card-title>
+                </div>
+            </mat-card-header>
+            <mat-card-content>
+                <div>
+                    <p *ngIf="smartphone.color==='BLACK'"><span>Cor: </span> Preto </p>
+                    <p *ngIf="smartphone.color==='PINK'"><span>Cor: </span> Rosa </p>
+                    <p *ngIf="smartphone.color==='GOLD'"><span>Cor: </span> Dourado </p>
+                    <p *ngIf="smartphone.color==='WHITE'"><span>Cor: </span> Branco </p>
+                    <p><span>Marca: </span> {{ smartphone.brand }} </p>
+                    <p><span>Código de identificação: </span> {{ smartphone.code }} </p>
+                    <p><span>Data de início das vendas: </span> {{ smartphone.startDate | date: 'dd/MM/yyyy' }} </p>
+                    <p><span>Vendido até: </span> {{ smartphone.endDate | date: 'dd/MM/yyyy'}} </p>
+                </div>
+            </mat-card-content>
+            <mat-card-actions fxFlexAlign="end">
+                <button mat-button>Editar</button>
+                <button mat-button>Apagar</button>
+                <button mat-button (click)="back()">Voltar</button>
+            </mat-card-actions>
+        </div>
+    </mat-card>
+</div>

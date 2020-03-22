@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Smartphone } from 'src/app/model/smartphone.model';
 
+import { Router, NavigationExtras } from '@angular/router';
+
 @Component({
   selector: 'app-smartphone-card',
   templateUrl: './smartphone-card.component.html',
@@ -10,9 +12,18 @@ export class SmartphoneCardComponent implements OnInit {
 
   @Input() smartphone: Smartphone;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  showDetails(): void {
+    let navigationExtras: NavigationExtras = {
+      state: {
+          href: this.smartphone._links.self.href
+      },
+  };
+  this.router.navigate(['/details'], navigationExtras);
   }
 
 }

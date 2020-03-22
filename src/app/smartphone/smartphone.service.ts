@@ -15,9 +15,13 @@ export class SmartphoneService {
 
   list(): Observable<Smartphone[]> {
     return this.http.get<HttpResponse>('/api/smartphones')
-    .pipe(
-      map(response => response._embedded.smartphones)
-    );
+      .pipe(
+        map(response => response._embedded.smartphones)
+      );
+  }
+
+  get(href: string): Observable<Smartphone> {
+    return this.http.get<Smartphone>(href);
   }
 
 }
