@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Smartphone } from '../model/smartphone.model';
-import { Color } from '../model/enums/color.enum';
+import { Smartphone } from 'src/app/model/smartphone.model';
+import { Color } from 'src/app/model/enums/color.enum';
 
 @Component({
-  selector: 'app-smartphone-list',
-  templateUrl: './smartphone-list.component.html',
-  styleUrls: ['./smartphone-list.component.scss']
+  selector: 'app-smartphone',
+  templateUrl: './smartphone.component.html',
+  styleUrls: ['./smartphone.component.scss']
 })
-export class SmartphoneListComponent implements OnInit {
+export class SmartphoneComponent implements OnInit {
 
   smartphone: Smartphone = {
     code: 'SMT12345',

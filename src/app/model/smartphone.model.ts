@@ -1,6 +1,5 @@
 import { Color } from './enums/color.enum';
 
-
 export interface Smartphone {
     code: string;
     model: string,

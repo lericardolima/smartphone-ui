@@ -2,15 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { SmartphoneListComponent } from './smartphone-list/smartphone-list.component';
+import { SmartphoneModule } from './smartphone/smartphone.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SmartphoneListComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    SmartphoneModule
   ],
   providers: [],
   bootstrap: [AppComponent]
