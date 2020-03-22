@@ -1,1 +1,5 @@
-<p>smartphone-list works!</p>
+<div fxLayout="row" fxLayoutGap>
+    <div *ngFor="let smartphone of smartphones">
+        <app-smartphone-card [smartphone]="smartphone"></app-smartphone-card>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<mat-card *ngIf="smartphone">
+    <div>
+        <img mat-card-image src="{{ smartphone.photo }}}" alt="{{ smartphone.model }}" >
+    </div>
+    <mat-card-content>
+        <mat-card-title>{{ smartphone.model }}</mat-card-title>
+        <mat-card-subtitle>{{ smartphone.price | currency }}</mat-card-subtitle>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="accent">Detalhes</button>
+    </mat-card-actions>
+  </mat-card>
