@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { SmartphoneCardComponent } from './smartphone-card/smartphone-card.component';
+import { HttpClientModule }    from '@angular/common/http';
 
 @NgModule({
   declarations: [SmartphoneComponent, SmartphoneListComponent, SmartphoneCardComponent],
@@ -13,7 +14,8 @@ import { SmartphoneCardComponent } from './smartphone-card/smartphone-card.compo
     CommonModule,
     FlexLayoutModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
   exports: [
     SmartphoneComponent,
