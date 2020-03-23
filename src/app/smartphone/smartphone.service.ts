@@ -23,6 +23,13 @@ export class SmartphoneService {
       );
   }
 
+  query(q: string): Observable<Smartphone[]> {
+    return this.http.get<HttpResponse>(`/api/smartphones/search/query?model=${q}&code=${q}&brand=${q}`)
+      .pipe(
+        map(response => response._embedded.smartphones)
+      );
+  }
+
   get(href: string): Observable<Smartphone> {
     return this.http.get<Smartphone>(href);
   }

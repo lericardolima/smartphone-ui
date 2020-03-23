@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 export class SmartphoneListComponent implements OnInit {
 
   search = new FormControl();
-  filteredSmartphones: Smartphone[] = []
   smartphones: Smartphone[] = [];
 
   constructor(private smartphoneService: SmartphoneService,
@@ -20,16 +19,16 @@ export class SmartphoneListComponent implements OnInit {
 
   ngOnInit(): void {
     this.smartphoneService.list()
-      .subscribe((result) => {
-        console.log(result)
-        this.smartphones = result;
-        this.filteredSmartphones = this.smartphones;
+      .subscribe((smartphones) => {
+        this.smartphones = smartphones;
       })
   }
 
-  find(query: string): void {
-    this.filteredSmartphones = this.smartphones
-      .filter(smartphone => smartphone.model.toLowerCase().includes(query.toLowerCase()) || query === '');
+  find(q: string): void {
+    this.smartphoneService.query(q)
+      .subscribe((smartphones) => {
+        this.smartphones = smartphones;
+      })
   }
 
   new(): void {
