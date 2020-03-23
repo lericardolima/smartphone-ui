@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpResponse } from '../model/http-response.model';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -32,4 +31,7 @@ export class SmartphoneService {
     return this.http.post<Smartphone>('/api/smartphones', smartphone, this.httpOptions);
   }
 
+  delete(href: string): Observable<Smartphone> {
+    return this.http.delete<Smartphone>(href);
+  }
 }

@@ -27,11 +27,18 @@ export class SmartphoneDetailComponent implements OnInit {
           this.smartphone = smartphone;
         });
     } else {
-      this.back();
+      this.router.navigate(['']);
     }
   }
 
   back(): void {
     this.location.back();
+  }
+
+  delete(): void {
+    this.smartphoneService.delete(this.smartphone._links.self.href)
+      .subscribe(() => {
+        this.router.navigate(['']);
+      });
   }
 }
