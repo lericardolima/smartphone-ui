@@ -15,6 +15,7 @@ import { SmartphoneRoutingModule } from './smartphone-routing.module';
 import { SmartphoneComponent } from './smartphone.component';
 import { SmartphoneFormComponent } from './smartphone-form/smartphone-form.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [SmartphoneListComponent, SmartphoneCardComponent, SmartphoneDetailComponent, SmartphoneComponent, SmartphoneFormComponent],
@@ -30,6 +31,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatToolbarModule,
     SmartphoneRoutingModule,
   ],
   exports: [

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SmartphoneComponent implements OnInit {
 
+  appName = 'Claro Smartphones'
+
   constructor() { }
 
   ngOnInit(): void {
