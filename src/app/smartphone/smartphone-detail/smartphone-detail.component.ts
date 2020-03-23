@@ -3,6 +3,7 @@ import { Smartphone } from 'src/app/model/smartphone.model';
 import { Router } from '@angular/router';
 import { SmartphoneService } from '../smartphone.service';
 import { Location } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar'
 
 @Component({
   selector: 'app-smartphone-detail',
@@ -14,9 +15,10 @@ export class SmartphoneDetailComponent implements OnInit {
   href = '';
   smartphone: Smartphone;
 
-  constructor(private router: Router,
+  constructor(
+    private router: Router,
     private smartphoneService: SmartphoneService,
-    private location: Location) {
+    private _snackBar: MatSnackBar) {
     this.href = this.router.getCurrentNavigation()?.extras?.state?.href;
   }
 
@@ -27,18 +29,24 @@ export class SmartphoneDetailComponent implements OnInit {
           this.smartphone = smartphone;
         });
     } else {
-      this.router.navigate(['']);
+      this.back();
     }
   }
 
   back(): void {
-    this.location.back();
+    this.router.navigate(['']);
   }
 
   delete(): void {
     this.smartphoneService.delete(this.smartphone._links.self.href)
       .subscribe(() => {
-        this.router.navigate(['']);
+        this._snackBar.open('Apagado!!', 'X', {
+          duration: 2000,
+        })
+          .afterDismissed()
+          .subscribe(() => {
+            this.router.navigate(['']);
+          });
       });
   }
 }
