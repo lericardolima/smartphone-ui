@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Smartphone } from '../model/smartphone.model';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -10,6 +10,10 @@ import { HttpResponse } from '../model/http-response.model';
   providedIn: 'root'
 })
 export class SmartphoneService {
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   constructor(private http: HttpClient) { }
 
@@ -22,6 +26,10 @@ export class SmartphoneService {
 
   get(href: string): Observable<Smartphone> {
     return this.http.get<Smartphone>(href);
+  }
+
+  create(smartphone: Smartphone): Observable<Smartphone> {
+    return this.http.post<Smartphone>('/api/smartphones', smartphone, this.httpOptions);
   }
 
 }

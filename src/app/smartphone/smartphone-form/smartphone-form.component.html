@@ -1,0 +1,67 @@
+<div fxFill fxLayout="row" fxLayoutAlign="center center">
+    <mat-card fxFlex="90" fxLayoutGap="20px">
+        <div fxFlex="40">
+            <img *ngIf="!photoUrl" fxFill
+                src="https://www.strokejoinville.com.br/wp-content/uploads/sites/804/2017/05/produto-sem-imagem-1.gif">
+            <img *ngIf="photoUrl" fxFill [src]="photoUrl">
+        </div>
+        <div fxLayout="column" fxFlex="60">
+            <mat-card-content>
+                <form [formGroup]="smartphoneForm" fxLayout="column">
+                    <mat-form-field>
+                        <mat-label>Modelo</mat-label>
+                        <input matInput placeholder="Entre 2 e 255 caracteres" formControlName="model">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Marca</mat-label>
+                        <input matInput placeholder="Entre 2 e 255 caracteres" formControlName="brand">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Código de identificação</mat-label>
+                        <input matInput placeholder="8 dígitos alfanuméricos" formControlName="code">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Preço</mat-label>
+                        <input type="number" matInput placeholder="Número igual ou maior que 0" formControlName="price">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Cor</mat-label>
+                        <mat-select formControlName="color">
+                            <mat-option value="BLACK">Preto</mat-option>
+                            <mat-option value="WHITE">Branco</mat-option>
+                            <mat-option value="PINK">Rosa</mat-option>
+                            <mat-option value="GOLD">Dourado</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div fxLayout="row" fxLayoutGap="10%">
+
+                        <mat-form-field fxFlex="45">
+                            <mat-label>Data de início da venda</mat-label>
+                            <input matInput [min]="minStartDate" [matDatepicker]="startDate" formControlName="startDate"
+                                (dateChange)="syncSaleDates()">
+                            <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                            <mat-datepicker #startDate></mat-datepicker>
+                        </mat-form-field>
+
+                        <mat-form-field fxFlex="45">
+                            <mat-label>Data de encerramento da venda</mat-label>
+                            <input matInput [min]="minEndDate" [matDatepicker]="endDate" formControlName="endDate">
+                            <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                            <mat-datepicker #endDate></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <mat-form-field>
+                        <mat-label>URL da foto</mat-label>
+                        <textarea matInput placeholder="Entre 2 e 255 caracteres" (keyup)="updatePhotoUrl()"
+                            formControlName="photo"></textarea>
+                    </mat-form-field>
+                </form>
+
+            </mat-card-content>
+            <mat-card-actions fxFlexAlign="end">
+                <button mat-button type="submit" (click)="create()" [disabled]="!smartphoneForm.valid">Salvar</button>
+                <button mat-button (click)="cancel()">Cancelar</button>
+            </mat-card-actions>
+        </div>
+    </mat-card>
+</div>

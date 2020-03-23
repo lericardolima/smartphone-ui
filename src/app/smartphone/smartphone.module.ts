@@ -8,12 +8,16 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
 import { SmartphoneDetailComponent } from './smartphone-detail/smartphone-detail.component';
 import { SmartphoneRoutingModule } from './smartphone-routing.module';
 import { SmartphoneComponent } from './smartphone.component';
+import { SmartphoneFormComponent } from './smartphone-form/smartphone-form.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
-  declarations: [SmartphoneListComponent, SmartphoneCardComponent, SmartphoneDetailComponent, SmartphoneComponent],
+  declarations: [SmartphoneListComponent, SmartphoneCardComponent, SmartphoneDetailComponent, SmartphoneComponent, SmartphoneFormComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -23,6 +27,9 @@ import { SmartphoneComponent } from './smartphone.component';
     MatCardModule,
     MatButtonModule,
     MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     SmartphoneRoutingModule,
   ],
   exports: [

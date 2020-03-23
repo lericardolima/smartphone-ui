@@ -1,14 +1,18 @@
-<div fxFlex fxLayoutAlign="center center">
-    <div fxFlex="80" fxLayout="column">
-        <form fxLayoutAlign="center" fxLayout="row">
-            <mat-form-field fxFlex="80">
-                <input [formControl]="search" (keyup)="find(search.value)" matInput placeholder="Pesquisar">
-            </mat-form-field>
-        </form>
+<div fxFill fxLayoutAlign="center">
+    <div fxFlex="90" fxLayout="column">
+        <div fxLayout="row">
+            <form fxLayoutAlign="center" fxFlex="90">
+                <mat-form-field fxFlex="70">
+                    <input [formControl]="search" (keyup)="find(search.value)" matInput placeholder="Pesquisar">
+                </mat-form-field>
+            </form>
+            <button mat-button color="primary" (click)="new()">Criar novo</button>
+        </div>
         <div fxLayout="row" fxLayoutGap="1%">
             <div *ngFor="let smartphone of filteredSmartphones">
                 <app-smartphone-card [smartphone]="smartphone"></app-smartphone-card>
             </div>
         </div>
     </div>
+
 </div>

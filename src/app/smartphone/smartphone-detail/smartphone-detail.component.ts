@@ -11,22 +11,25 @@ import { Location } from '@angular/common';
 })
 export class SmartphoneDetailComponent implements OnInit {
 
+  href = '';
   smartphone: Smartphone;
 
   constructor(private router: Router,
     private smartphoneService: SmartphoneService,
     private location: Location) {
-    const href = this.router.getCurrentNavigation().extras.state.href;
-    console.log(href)
-    this.smartphoneService.get(href)
-      .subscribe((result) => {
-        console.log(result)
-        this.smartphone = result;
-      });
-
+    this.href = this.router.getCurrentNavigation()?.extras?.state?.href;
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    if (this.href) {
+      this.smartphoneService.get(this.href)
+        .subscribe((smartphone) => {
+          this.smartphone = smartphone;
+        });
+    } else {
+      this.back();
+    }
+  }
 
   back(): void {
     this.location.back();
