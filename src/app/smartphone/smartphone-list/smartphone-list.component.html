@@ -8,9 +8,9 @@
             </form>
             <button mat-button color="primary" (click)="new()">Criar novo</button>
         </div>
-        <div fxLayout="row" fxLayoutGap="1%">
+        <div fxLayout="row wrap" fxLayoutGap="20px grid" fxLayoutAlign="flex-start">
             <div *ngFor="let smartphone of filteredSmartphones">
-                <app-smartphone-card [smartphone]="smartphone"></app-smartphone-card>
+                <app-smartphone-card fxFlex="0 1 calc(25% - 20px)" [smartphone]="smartphone"></app-smartphone-card>
             </div>
         </div>
     </div>
