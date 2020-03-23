@@ -8,6 +8,7 @@ export interface Smartphone {
     photo: string,
     startDate: Date,
     endDate: Date,
-    color: Color
+    color: Color,
+    _links: {self: {href: string}};
   }
   

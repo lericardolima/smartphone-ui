@@ -1,1 +1,20 @@
-<p>smartphone-list works!</p>
+<div fxFill fxLayoutAlign="center">
+    <div fxFlex="90" fxLayout="column" fxLayoutGap="10px">
+        <div fxLayout="row">
+            <form fxLayoutAlign="center" fxFlex="90">
+                <mat-form-field fxFlex="70">
+                    <input [formControl]="search" (keyup)="find(search.value)" matInput placeholder="Pesquisar">
+                </mat-form-field>
+            </form>
+            <button mat-button color="primary" (click)="new()">Criar novo</button>
+        </div>
+        <div *ngIf="smartphones" fxLayout="row wrap" fxLayoutGap="20px grid" fxLayoutAlign="flex-start">
+            <div *ngFor="let smartphone of smartphones">
+                <app-smartphone-card fxFlex="0 1 calc(25% - 20px)" [smartphone]="smartphone"></app-smartphone-card>
+            </div>
+        </div>
+        <div *ngIf="!smartphones || !smartphones[0]" fxLayoutGap="20px" fxLayoutAlign="center center">
+            <p>Nada para exibir por aqui.</p>
+        </div>
+    </div>
+</div>
