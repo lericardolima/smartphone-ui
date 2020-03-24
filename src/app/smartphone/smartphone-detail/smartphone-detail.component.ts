@@ -41,11 +41,8 @@ export class SmartphoneDetailComponent implements OnInit {
       .subscribe(() => {
         this.snackBar.open('Apagado!!', 'X', {
           duration: 2000,
-        })
-          .afterDismissed()
-          .subscribe(() => {
-            this.router.navigate(['']);
-          });
+        });
+        this.router.navigate(['']);
       });
   }
 }

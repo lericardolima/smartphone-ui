@@ -66,14 +66,10 @@ export class SmartphoneFormComponent implements OnInit {
         };
         this.snackBar.open('Salvo!!', 'X', {
           duration: 2000,
-        })
-          .afterDismissed()
-          .subscribe(() => {
-            this.router.navigate(['/details'], navigationExtras);
-          });
+        });
+        this.router.navigate(['/details'], navigationExtras);
       },
         (error) => {
-          console.log(error);
           this.snackBar.open(`Ocorreu um erro: ${error.error.message}`, 'X', {
             duration: 2000,
           });
