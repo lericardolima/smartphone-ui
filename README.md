@@ -1,4 +1,5 @@
 # Smartphone UI
+[![Build Status](https://travis-ci.com/lericardolima/smartphone-ui.svg?branch=develop)](https://travis-ci.com/lericardolima/smartphone-ui)
 
 Interface do usuário criada para o projeto Smartphone, um sistema para venda de smartphones.
 
