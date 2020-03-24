@@ -19,6 +19,12 @@ describe('SmartphoneComponent', () => {
     fixture.detectChanges();
   });
 
+  it(`should have as title 'Claro Smartphones'`, () => {
+    fixture = TestBed.createComponent(SmartphoneComponent);
+    component = fixture.componentInstance;
+    expect(component.appName).toEqual('Claro Smartphones');
+  });
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });

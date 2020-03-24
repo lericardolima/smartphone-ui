@@ -39,7 +39,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatNativeDateModule,
     MatToolbarModule,
     MatSnackBarModule,
-    SmartphoneRoutingModule,
+    SmartphoneRoutingModule
   ],
   exports: [
     SmartphoneComponent
