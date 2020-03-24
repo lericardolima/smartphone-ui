@@ -14,7 +14,7 @@ import { SmartphoneDetailComponent } from './smartphone-detail/smartphone-detail
 import { SmartphoneRoutingModule } from './smartphone-routing.module';
 import { SmartphoneComponent } from './smartphone.component';
 import { SmartphoneFormComponent } from './smartphone-form/smartphone-form.component';
-import { MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
@@ -43,6 +43,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
   ],
   exports: [
     SmartphoneComponent
+  ],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }
   ]
 })
 export class SmartphoneModule { }
