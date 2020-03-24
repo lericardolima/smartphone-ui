@@ -1,4 +1,4 @@
-import { Color } from './enums/color.enum';
+import { Color } from './color.enum';
 
 export interface Smartphone {
     code: string;

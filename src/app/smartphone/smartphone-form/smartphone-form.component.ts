@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
-import { Color } from 'src/app/model/enums/color.enum';
+import { Color } from '../color.enum';
 import { SmartphoneService } from '../smartphone.service';
 import { NavigationExtras, Router } from '@angular/router';
 import { Location } from '@angular/common';
@@ -33,7 +33,7 @@ export class SmartphoneFormComponent implements OnInit {
     private smartphoneService: SmartphoneService,
     private router: Router,
     private location: Location,
-    private _snackBar: MatSnackBar) { }
+    private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.syncSaleDates();
@@ -64,7 +64,7 @@ export class SmartphoneFormComponent implements OnInit {
             href: smartphone._links.self.href
           },
         };
-        this._snackBar.open('Salvo!!', 'X', {
+        this.snackBar.open('Salvo!!', 'X', {
           duration: 2000,
         })
           .afterDismissed()
@@ -74,7 +74,7 @@ export class SmartphoneFormComponent implements OnInit {
       },
         (error) => {
           console.log(error)
-          this._snackBar.open(`Ocorreu um erro: ${error.error.message}`, 'X', {
+          this.snackBar.open(`Ocorreu um erro: ${error.error.message}`, 'X', {
             duration: 2000,
           });
         })

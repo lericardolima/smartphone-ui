@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Smartphone } from '../model/smartphone.model';
+import { Smartphone } from './smartphone.model';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { HttpResponse } from '../model/http-response.model';
+
+interface HttpResponse {
+  _embedded: {
+    smartphones: Smartphone[];
+  };
+}
 
 @Injectable({
   providedIn: 'root'

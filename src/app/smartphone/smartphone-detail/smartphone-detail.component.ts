@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Smartphone } from 'src/app/model/smartphone.model';
+import { Smartphone } from 'src/app/smartphone/smartphone.model';
 import { Router } from '@angular/router';
 import { SmartphoneService } from '../smartphone.service';
-import { Location } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar'
 
 @Component({
@@ -18,7 +17,7 @@ export class SmartphoneDetailComponent implements OnInit {
   constructor(
     private router: Router,
     private smartphoneService: SmartphoneService,
-    private _snackBar: MatSnackBar) {
+    private snackBar: MatSnackBar) {
     this.href = this.router.getCurrentNavigation()?.extras?.state?.href;
   }
 
@@ -40,7 +39,7 @@ export class SmartphoneDetailComponent implements OnInit {
   delete(): void {
     this.smartphoneService.delete(this.smartphone._links.self.href)
       .subscribe(() => {
-        this._snackBar.open('Apagado!!', 'X', {
+        this.snackBar.open('Apagado!!', 'X', {
           duration: 2000,
         })
           .afterDismissed()
