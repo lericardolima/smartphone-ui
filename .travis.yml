@@ -1,0 +1,13 @@
+branches:
+  only:
+  - master
+  - develop
+  - feature
+
+language: node_js
+node_js:
+  - 12
+
+script:
+  - ng lint smartphone-ui
+  - ng test --browsers ChromeHeadless --watch=false
