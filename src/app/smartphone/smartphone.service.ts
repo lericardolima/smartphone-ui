@@ -22,21 +22,21 @@ export class SmartphoneService {
   constructor(private http: HttpClient) { }
 
   list(): Observable<Smartphone[]> {
-    return this.http.get<HttpResponse>('/api/smartphones')
+    return this.http.get<HttpResponse>('/api/smartphones', this.httpOptions)
       .pipe(
         map(response => response._embedded.smartphones)
       );
   }
 
   query(q: string): Observable<Smartphone[]> {
-    return this.http.get<HttpResponse>(`/api/smartphones/search/query?model=${q}&code=${q}&brand=${q}`)
+    return this.http.get<HttpResponse>(`/api/smartphones/search/query?model=${q}&code=${q}&brand=${q}`, this.httpOptions)
       .pipe(
         map(response => response._embedded.smartphones)
       );
   }
 
   get(href: string): Observable<Smartphone> {
-    return this.http.get<Smartphone>(href);
+    return this.http.get<Smartphone>(href, this.httpOptions);
   }
 
   create(smartphone: Smartphone): Observable<Smartphone> {
@@ -44,6 +44,6 @@ export class SmartphoneService {
   }
 
   delete(href: string): Observable<Smartphone> {
-    return this.http.delete<Smartphone>(href);
+    return this.http.delete<Smartphone>(href, this.httpOptions);
   }
 }

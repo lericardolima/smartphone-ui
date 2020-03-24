@@ -9,7 +9,7 @@ const app = express();
 
 // Configuração do proxy das requisições à API.
 const apiProxy = httpProxy.createProxyServer();
-app.get("/api/*", (req, res) => {
+app.all("/api/*", (req, res) => {
   apiProxy.web(req, res, { target: process.env.API_SERVER_BASE_URL });
 });
 
