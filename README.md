@@ -1,27 +1,94 @@
-# SmartphoneUi
+# Smartphone UI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
+Interface do usuário criada para o projeto Smartphone, um sistema para venda de smartphones.
 
-## Development server
+---
+### Ferramentas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+*  [npm](https://www.npmjs.com/)
+*  [Angular 9](https://angular.io/)
+*  [TypeScript](https://www.typescriptlang.org/)
+*  [Angular Material](https://material.angular.io/)
+*  [Angular Flex-Layout](https://github.com/angular/flex-layout)
+*  [RxJS](https://rxjs-dev.firebaseapp.com/)
+*  [Karma](https://karma-runner.github.io/latest/index.html/)
+*  [Node.js](https://nodejs.org/en/)
+*  [Express](https://expressjs.com/pt-br/)
+*  [http-proxy](https://www.npmjs.com/package/http-proxy)
+*  [dotenv](https://www.npmjs.com/package/dotenv)
+---
+### Configuração do ambiente
 
-## Code scaffolding
+Siga as instruções para configurar o ambiente de desenvolvimento.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#### Instalar dependencias
 
-## Build
+  Execute o comando abaixo para instalar as dependencias do projeto.
+  ```
+  npm install
+  ``` 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+#### Iniciar o Smartphone API
 
-## Running unit tests
+  Antes de executar o projeto, certifique-se de que o Smartphone API esteja sendo executado e acessível. No arquivo `proxy.config.json`, altere o atributo `target` com o endereço do servidor da API.
+  ```
+  {
+    "/api/*": {
+        "target": "http://localhost:8080",
+        "secure": false,
+        "logLevel": "debug"
+    }
+  }
+  ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  Na raiz do projeto, execute o comando:
+  ```
+  ng serve --open
+  ```
 
-## Running end-to-end tests
+  Após o fim da execução do comando, acesso o Smartphone UI em [http://localhost:4200](http://localhost:4200).
+ 
+#### Executar os testes
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+  Na raiz do projeto, execute o comando:
+  ```
+  ng test
+  ```
+ 
+#### Lint
 
-## Further help
+  Na raiz do projeto, execute o comando:
+  ```
+  ng lint smartphone-ui
+  ```
+  
+#### Gerar build
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+  Na raiz do projeto, execute o comando:
+  ```
+  ng build --prod
+  ```
+  Este comando deve gerar os arquivos compilados na pasta `server/dist/static`.
+
+#### Executar servidor de produção
+
+  Após o build, entre na pasta `server` e crie o arquivo `.env` com os parâmetros:
+  ```
+  API_SERVER_BASE_URL=http://localhost:8080
+PORT=4200
+  ```
+  O parâmetro `API_SERVER_BASE_URL` é obrigatório e seu valor é o link para onde o servidor da API está sendo executado.
+  O parâmetro `PORT` é opcional, seu valor default é 3000.
+
+  Em seguida, na pasta `server`, execute os comandos:
+  ```
+  npm install
+  npm start
+  ```
+  Após o fim da execução do comando, acesso o Smartphone UI em [http://localhost:4200](http://localhost:4200).
+
+  ## Contribuição
+  
+   **Ricardo de Lima Rocha**
+  *  [Linkedin](https://www.linkedin.com/in/ricardo-de-lima-rocha/)
+  *  [GitHub](https://github.com/lericardolima)
