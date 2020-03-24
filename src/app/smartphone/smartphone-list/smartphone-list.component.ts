@@ -15,20 +15,20 @@ export class SmartphoneListComponent implements OnInit {
   smartphones: Smartphone[] = [];
 
   constructor(private smartphoneService: SmartphoneService,
-    private router: Router) { }
+              private router: Router) { }
 
   ngOnInit(): void {
     this.smartphoneService.list()
       .subscribe((smartphones) => {
         this.smartphones = smartphones;
-      })
+      });
   }
 
   find(q: string): void {
     this.smartphoneService.query(q)
       .subscribe((smartphones) => {
         this.smartphones = smartphones;
-      })
+      });
   }
 
   new(): void {

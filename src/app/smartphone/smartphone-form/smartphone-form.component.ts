@@ -4,7 +4,7 @@ import { Color } from '../color.enum';
 import { SmartphoneService } from '../smartphone.service';
 import { NavigationExtras, Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { MatSnackBar } from '@angular/material/snack-bar'
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-smartphone-form',
@@ -26,7 +26,7 @@ export class SmartphoneFormComponent implements OnInit {
     color: [Color.BLACK, [Validators.required]],
     startDate: [new Date(), [Validators.required]],
     endDate: ['', [Validators.required]]
-  })
+  });
 
   constructor(
     private formBuilder: FormBuilder,
@@ -59,7 +59,7 @@ export class SmartphoneFormComponent implements OnInit {
   create(): void {
     this.smartphoneService.create(this.smartphoneForm.value)
       .subscribe(smartphone => {
-        let navigationExtras: NavigationExtras = {
+        const navigationExtras: NavigationExtras = {
           state: {
             href: smartphone._links.self.href
           },
@@ -69,15 +69,15 @@ export class SmartphoneFormComponent implements OnInit {
         })
           .afterDismissed()
           .subscribe(() => {
-            this.router.navigate(['/details'], navigationExtras)
+            this.router.navigate(['/details'], navigationExtras);
           });
       },
         (error) => {
-          console.log(error)
+          console.log(error);
           this.snackBar.open(`Ocorreu um erro: ${error.error.message}`, 'X', {
             duration: 2000,
           });
-        })
+        });
   }
 
   cancel(): void {

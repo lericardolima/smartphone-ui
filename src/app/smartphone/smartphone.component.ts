@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SmartphoneComponent implements OnInit {
 
-  appName = 'Claro Smartphones'
+  appName = 'Claro Smartphones';
 
   constructor() { }
 

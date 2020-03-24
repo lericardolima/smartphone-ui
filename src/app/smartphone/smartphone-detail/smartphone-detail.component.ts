@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Smartphone } from 'src/app/smartphone/smartphone.model';
 import { Router } from '@angular/router';
 import { SmartphoneService } from '../smartphone.service';
-import { MatSnackBar } from '@angular/material/snack-bar'
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-smartphone-detail',

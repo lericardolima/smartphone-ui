@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SmartphoneListComponent } from './smartphone-list/smartphone-list.component';
 import { SmartphoneCardComponent } from './smartphone-card/smartphone-card.component';
-import { HttpClientModule }    from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule  } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
@@ -19,7 +19,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
-  declarations: [SmartphoneListComponent, SmartphoneCardComponent, SmartphoneDetailComponent, SmartphoneComponent, SmartphoneFormComponent],
+  declarations: [
+    SmartphoneListComponent,
+    SmartphoneCardComponent,
+    SmartphoneDetailComponent,
+    SmartphoneComponent,
+    SmartphoneFormComponent],
   imports: [
     CommonModule,
     HttpClientModule,

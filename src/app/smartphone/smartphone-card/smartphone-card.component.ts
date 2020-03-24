@@ -18,12 +18,12 @@ export class SmartphoneCardComponent implements OnInit {
   }
 
   showDetails(): void {
-    let navigationExtras: NavigationExtras = {
+    const navigationExtras: NavigationExtras = {
       state: {
           href: this.smartphone._links.self.href
       },
   };
-  this.router.navigate(['/details'], navigationExtras);
+    this.router.navigate(['/details'], navigationExtras);
   }
 
 }
