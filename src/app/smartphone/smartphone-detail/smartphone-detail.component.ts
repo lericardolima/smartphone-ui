@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Smartphone } from 'src/app/smartphone/smartphone.model';
+import { Smartphone } from '../smartphone.model';
 import { Router } from '@angular/router';
 import { SmartphoneService } from '../smartphone.service';
 import { MatSnackBar } from '@angular/material/snack-bar';

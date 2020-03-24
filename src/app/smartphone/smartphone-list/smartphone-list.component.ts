@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SmartphoneService } from '../smartphone.service';
-import { Smartphone } from 'src/app/smartphone/smartphone.model';
+import { Smartphone } from '../smartphone.model';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Smartphone } from 'src/app/smartphone/smartphone.model';
+import { Smartphone } from '../smartphone.model';
 
 import { Router, NavigationExtras } from '@angular/router';
 
